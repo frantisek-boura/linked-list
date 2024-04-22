@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GUIController">
+   <left>
+      <BorderPane prefHeight="600.0" prefWidth="290.0" BorderPane.alignment="CENTER">
+         <center>
+            <ListView fx:id="listProcesy" prefHeight="600.0" prefWidth="250.0" />
+         </center>
+         <top>
+            <Label text="Výrobní procesy" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </top>
+      </BorderPane>
+   </left>
+   <center>
+      <BorderPane prefHeight="600.0" prefWidth="327.0" BorderPane.alignment="CENTER">
+         <top>
+            <BorderPane prefHeight="166.0" prefWidth="355.0" BorderPane.alignment="CENTER">
+               <top>
+                  <Label text="Nový výrobní proces" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </top>
+               <center>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" orientation="VERTICAL" prefHeight="135.0" prefWidth="355.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="32.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Typ výrobního procesu" textAlignment="CENTER" />
+                              <ComboBox fx:id="cbTypProcesu" prefWidth="150.0" />
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="32.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Čas procesu" textAlignment="CENTER" />
+                              <TextField fx:id="fieldCasProcesu" />
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="32.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Počet osob" textAlignment="CENTER" />
+                              <TextField fx:id="fieldPocetOsob" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </FlowPane>
+               </center>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </BorderPane>
+         </top>
+         <center>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" orientation="VERTICAL" prefHeight="119.0" prefWidth="355.0" BorderPane.alignment="CENTER">
+               <children>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="35.0" prefWidth="280.0">
+                     <children>
+                        <Label text="Vlož na pozici" />
+                        <ComboBox fx:id="cbVloz" prefWidth="100.0" />
+                        <Button fx:id="btnVloz" mnemonicParsing="false" onAction="#vlozProces" text="Vložit" />
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="35.0" prefWidth="280.0">
+                     <children>
+                        <Label text="Vyber na pozici" />
+                        <ComboBox fx:id="cbVyber" prefWidth="100.0" />
+                        <Button fx:id="btnVyber" mnemonicParsing="false" onAction="#vyberProces" text="Vybrat" />
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="35.0" prefWidth="280.0">
+                     <children>
+                        <Label text="Odeber na pozici" />
+                        <ComboBox fx:id="cbOdeber" prefWidth="100.0" />
+                        <Button fx:id="btnOdeber" mnemonicParsing="false" onAction="#odeberProces" text="Odebrat" />
+                     </children>
+                  </FlowPane>
+               </children>
+            </FlowPane>
+         </center>
+         <bottom>
+            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" orientation="VERTICAL" prefHeight="302.0" prefWidth="355.0" BorderPane.alignment="CENTER">
+               <children>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" orientation="VERTICAL" prefHeight="81.0" prefWidth="355.0">
+                     <children>
+                        <Label text="Počet náhodně generovaných dat" />
+                        <Slider fx:id="sldGeneruj" majorTickUnit="50.0" max="50.0" min="1.0" value="20" minorTickCount="4" prefHeight="29.0" prefWidth="225.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                        <Button fx:id="btnGeneruj" mnemonicParsing="false" onAction="#generuj" text="Generovat..." />
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="45.0" prefWidth="355.0">
+                     <children>
+                        <Button fx:id="btnImport" mnemonicParsing="false" onAction="#importuj" text="Importovat..." />
+                        <Button fx:id="btnExport" mnemonicParsing="false" onAction="#exportuj" text="Exportovat..." />
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="37.0" prefWidth="300.0">
+                     <children>
+                        <Label text="Časové kritérium" />
+                        <TextField fx:id="fieldKriterium" prefHeight="25.0" prefWidth="80.0" />
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="37.0" prefWidth="355.0">
+                     <children>
+                        <Label text="Typ reorganizace" />
+                        <ComboBox fx:id="cbVytipuj" prefWidth="100.0" />
+                        <Button fx:id="btnVytipuj" mnemonicParsing="false" onAction="#vytipujKandidaty" prefHeight="25.0" prefWidth="67.0" text="Vytipovat" wrapText="true" />
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="37.0" prefWidth="300.0">
+                     <children>
+                        <Label text="Typ reorganizace" />
+                        <ComboBox fx:id="cbReorg" prefWidth="100.0" />
+                        <Button fx:id="btnReorg" mnemonicParsing="false" onAction="#reorganizujProcesy" prefHeight="25.0" prefWidth="92.0" text="Reorganizovat" wrapText="true" />
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="37.0" prefWidth="300.0">
+                     <children>
+                        <Button fx:id="btnZobraz" mnemonicParsing="false" onAction="#zobrazKandidaty" prefHeight="25.0" prefWidth="115.0" text="Zobrazit kandidáty" wrapText="true" />
+                        <Button fx:id="btnVymaz" mnemonicParsing="false" onAction="#vymazProcesy" prefHeight="25.0" prefWidth="149.0" text="Vymazat výrobní procesy" wrapText="true" />
+                     </children>
+                  </FlowPane>
+               </children>
+            </FlowPane>
+         </bottom>
+      </BorderPane>
+   </center>
+</BorderPane>
